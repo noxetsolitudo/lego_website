@@ -1,0 +1,938 @@
+@import 'config';
+@import 'buttons';
+@import 'utilities';
+@import 'mixins';
+
+//left side menu
+
+// header
+header {
+  // Hamburger menu
+  #hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px $color05 solid; //yellow border line
+
+    // Menu left
+    .hamburger-menu-left {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0.5rem 2rem; //margin for the menu-left set here
+
+      //menu icon and lego icon
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        li {
+          font-size: 0.5rem; //menu size below the hamburger icon
+          margin-top: 0.25rem;
+          color: $color10;
+          i {
+            cursor: pointer; //pointes shown when hover over
+            font-size: 1.5rem;
+          }
+        }
+      }
+      a {
+        //lego icon
+        margin-left: 1rem;
+        img {
+          width: 40px;
+        }
+      }
+    }
+    .hamburger-menu-right {
+      display: flex;
+      align-items: flex-start;
+      margin-right: 1rem; //margin for the menu right
+      img {
+        //icons styling
+        width: 20px;
+        margin-bottom: 0.25rem;
+      }
+      li {
+        margin-left: 1rem;
+        i {
+          font-size: 1rem;
+          color: $color08;
+        }
+        a {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          color: $color04; //color of the 0 under the hearth and bag
+          font-size: 0.7rem; //sizing the 0 under the hearth and bag
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  #header-small {
+    display: none;
+    margin: 1rem 1rem;
+    .container {
+      @include flex-center-spaceBetween; // container used as flex
+      img {
+        //icons styling
+        width: 20px;
+        margin-right: 0.25rem;
+      }
+      //general styles for all in the header
+      li {
+        margin-right: 1rem;
+        a {
+          @include flex-center-center;
+          font-size: 0.7rem;
+          color: $color04;
+        }
+      }
+
+      .header-small-left {
+        @include flex-center-center;
+
+        p {
+          margin-right: 1rem; //pipe symbol
+        }
+      }
+      .header-small-right {
+        @include flex-center-center;
+        a {
+          color: $color10;
+        }
+      }
+    }
+  }
+
+  #header-main {
+    // display: none;
+    .container {
+      .header-main-left {
+        //close button placed here
+        //fixed to the top
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: block;
+        // display: none;
+        text-align: left;
+        background-color: $color02;
+        width: 450px;
+        height: 100%;
+        z-index: 2;
+        transform: translateX(-500px);
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border-bottom: 1px solid $color03;
+          padding: 1.25rem;
+
+          a {
+            display: flex; //for spreading the text and chevron
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            font-size: 0.8rem;
+            color: $color10;
+            // margin-left: 0.5rem;
+            i {
+              margin-left: 0.25rem;
+            }
+          }
+        }
+
+        //menu and close button
+        .menu-and-close {
+          font-size: 1rem;
+          padding: 1.5rem;
+          padding-left: 1.8rem; //to match LIs below
+          color: $color10;
+
+          //x close button icon
+          i {
+            cursor: pointer;
+            font-size: 1.25rem;
+            // border-left: 1px solid $color04;
+            padding-left: 1rem;
+          }
+        }
+
+        .kids-zone {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          .kids-zone-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background-color: $color07;
+            padding: 0.25rem;
+            border-radius: 0.25rem;
+            box-shadow: 2px 2px 5px #777;
+            margin-bottom: 3rem;
+
+            //lego head
+            img {
+              width: 18px;
+              margin-right: 1rem;
+            }
+            p {
+              margin-right: 1rem;
+            }
+            i {
+              margin-left: 0rem;
+            }
+          }
+        }
+      }
+      .show {
+        transform: translateX(0px);
+      }
+
+      .header-main-right {
+        display: none;
+        input {
+          width: 100%; //responsive input field width
+          height: 2.5rem;
+          outline: none;
+          border: 1px solid $color06;
+          border-radius: 1.5rem;
+          text-indent: 1rem; //placeholder's cursor offset
+        }
+      }
+      .container {
+        @include flex-center-spaceBetween;
+      }
+    }
+  }
+
+  // Stripe
+  #stripe01 {
+    background: $color02;
+    padding: 0 1rem;
+
+    .container-stripe01 {
+      margin: auto;
+      max-width: 900px;
+
+      .content-stripe01 {
+        @include flex-center-spaceBetween;
+        text-transform: uppercase;
+
+        img {
+          width: 80px;
+        }
+        p {
+          color: $color10;
+          margin-left: 1rem;
+          font-size: 0.7rem;
+        }
+        a {
+          color: $color08;
+          font-size: 0.7rem;
+          margin-left: 1rem;
+          &:hover {
+            color: $color08;
+          }
+        }
+        i {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+}
+
+// Showcase01
+#showcase01 {
+  //Christmas picture
+  background: url('/images/showcase01/showcase01.webp') no-repeat center
+    center/cover;
+  height: 317px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: $color11;
+  font-weight: 800;
+
+  .showcase01-content {
+    width: 40%;
+    margin-left: 3rem;
+    button {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+      @include flex-center-center;
+      i {
+        margin-left: 0.5rem;
+        color: $color05;
+      }
+    }
+  }
+}
+
+// Showcase02
+#showcase02 {
+  margin: 3rem 1rem;
+  font-size: 0.7rem;
+  ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    li {
+      a {
+        display: flex;
+        flex-direction: column;
+        place-items: center; //this is replacing both of above
+        img {
+          width: 60px;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
+
+// Showcase03 and Showcase06
+#showcase03,
+#showcase07 {
+  margin: 1rem;
+  h2 {
+    text-align: center;
+  }
+  .showcase03-flex-container,
+  .showcase07-flex-container {
+    @include flex-center-center;
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 1rem;
+    .item {
+      position: relative; //relative position for the heart icon
+      display: flex;
+      flex-direction: column;
+      margin: 1rem 0;
+
+      //styles for all stars
+      .stars {
+        i {
+          font-size: 0.9rem;
+          color: $color05;
+        }
+      }
+
+      a {
+        .border {
+          //border around the pictures
+          border: 1px $color03 solid;
+          img {
+            width: 220px;
+            padding: 2.51rem;
+            transition: transform 250ms ease-in-out;
+
+            &:hover,
+            &:focus {
+              transform: scale(1.2);
+            }
+          }
+        }
+
+        i {
+          position: absolute; //heart icon is positioned absolutely to the item div
+          left: 10px;
+          top: 10px;
+          color: $color08;
+          background-color: $color02;
+          padding: 0.5rem;
+          border-radius: 50%;
+        }
+      }
+      .title {
+        margin-top: 0.5rem;
+        margin-bottom: 0.25rem;
+        font-weight: 600;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .showcase03-mini-content {
+        @include flex-center-spaceBetween;
+        .stars-and-price {
+          .price {
+            margin-top: 0.25rem;
+          }
+        }
+        a {
+          //add to bag button
+          margin-left: 1rem;
+          text-align: center;
+          width: 6.5rem;
+          padding: 1.1rem 1rem; //local change for the add button/link size
+          font-size: 0.75rem;
+          font-weight: 600;
+          border: 2px $color06 solid; //here eliminating of the hover shifting the whole button issue
+        }
+      }
+    }
+  }
+}
+
+// Showcase04 and Showcase06
+#showcase04,
+#showcase06 {
+  margin: 1rem;
+  h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  .showcase04-flex-container,
+  .showcase06-flex-container {
+    @include flex-center-center;
+    flex-wrap: wrap;
+    text-align: center; //centering the text in the container (all text centered)
+    gap: 1rem;
+    .item {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      a {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center; //this aligns items, centers them alongside the vertical symetry line
+        img {
+          width: 450px;
+          margin-bottom: 1.5rem;
+        }
+        h3 {
+          //had to disregard the clamp here to set bigger fotn size
+          font-size: 1rem;
+          font-weight: 700;
+          margin-bottom: 1rem;
+        }
+        p {
+          margin: 0 2rem 1rem 2rem;
+        }
+      }
+    }
+  }
+}
+
+// Showcase05 image for handheld devices
+#showcase05-img {
+  position: relative;
+  background: url('/images/showcase05/showcase05.jpg') no-repeat center
+    center/cover;
+  height: 300px;
+  h2 {
+    position: absolute;
+    margin: 1rem;
+  }
+}
+// Showcase05 video for bigger devices
+#showcase05-vid {
+  display: none;
+}
+
+// Stripe 02
+#stripe02 {
+  background: url('/images/stripe02/stripe02.webp') no-repeat center
+    center/cover;
+  height: 125px;
+  @include flex-center-center;
+
+  .stripe-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.5rem;
+    gap: 0.5rem;
+  }
+}
+
+// Showcase08
+.hero {
+  margin-bottom: 2rem;
+  @include flex-center-spaceBetween;
+  .hero-text {
+    margin: 3rem;
+    a {
+      font-size: 0.9rem;
+    }
+  }
+  .image-small {
+    img {
+      width: 200px;
+    }
+  }
+  .image-medium {
+    img {
+      width: 450px;
+    }
+  }
+  .image-large {
+    img {
+      width: 500px;
+    }
+  }
+}
+// Footer
+footer {
+  #footer01 {
+    background-color: $color08;
+    color: $color01;
+    .footer01-01 {
+      @include flex-center-center;
+      justify-content: flex-start; //pushing all at the start partly overwriting above mixin
+      margin: 1rem;
+      padding: 2rem;
+      border-bottom: 1px solid $color01;
+      img {
+        width: 80px;
+        margin-right: 1rem;
+      }
+      .footer01-01-content {
+        h3,
+        p,
+        a {
+          margin: 1rem;
+          color: $color01;
+          i {
+            color: $color01;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            margin-left: -1rem;
+          }
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .footer01-02 {
+      h3 {
+        margin: 1rem;
+        margin-left: 2rem;
+      }
+      @include flex-center-center;
+      align-items: flex-start; //pushing all at the start partly overwriting above mixin
+      flex-direction: column;
+      // margin: 1rem;
+      .footer01-02-content {
+        img {
+          width: 60px;
+        }
+        ul {
+          li {
+            margin: 1rem;
+            a {
+              @include flex-center-spaceBetween;
+              justify-content: flex-start; //align to the left side
+              padding-left: 2rem;
+              color: $color01;
+              p {
+                margin: 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Footer02
+  #footer02 {
+    background-color: $color10;
+    color: $color01;
+    .footer02-01 {
+      margin: 1rem;
+      border-bottom: 1px solid $color04;
+      .footer02-01-content {
+        @include flex-center-center;
+        flex-direction: column;
+        align-items: flex-start;
+        h3 {
+          text-transform: uppercase;
+          margin-bottom: 1rem;
+        }
+        p {
+          margin-bottom: 1rem;
+        }
+      }
+      .email-input-and-button {
+        @include flex-center-center;
+        text-align: center;
+        text-align: justify;
+        padding-bottom: 1rem; //offset of the bottom border
+        input {
+          width: 100%; //responsive input field width
+          height: 3.5rem;
+          outline: none;
+          // border: 10px solid red;
+          text-indent: 2rem; //placeholder's cursor offset
+        }
+        a {
+          border-top-left-radius: 0%;
+          border-bottom-left-radius: 0%;
+          padding: 18px;
+          font-size: 15px;
+          border: 2px solid $color10;
+          border-left: none;
+          &:hover {
+            border: 2px solid $color06;
+          }
+        }
+      }
+      small {
+        // display: none;
+        font-size: 0.75rem;
+      }
+    }
+    .footer02-02 {
+      margin: 1rem;
+      h3 {
+        margin-bottom: 1.5rem;
+      }
+      ul {
+        @include flex-center-spaceBetween;
+        i {
+          //social icons styling
+          background-color: $color01;
+          border-radius: 50%;
+          padding: 0.5rem;
+          margin: 1rem 2rem;
+          color: $color10;
+          font-size: 1.75rem;
+        }
+      }
+    }
+  }
+
+  //#region [rgba(0,255,0, 0.05)]
+  // Footer03
+  #footer03 {
+    background-color: $color02;
+    color: $color10;
+    border-bottom: 1px solid $color03;
+    padding: 1rem 1rem 0rem 1rem;
+
+    h3 {
+      margin-bottom: 0.5rem;
+    }
+    a {
+      color: $color10;
+      margin-bottom: 1rem;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .footer03-foot01 {
+      @include border-bottom;
+      .find-input {
+        @include flex-center-center;
+        text-align: center;
+        text-align: justify;
+        margin-bottom: 1rem; //offset of the imput field from (enter your city ...)
+        input {
+          width: 100%; //responsive input field width
+          height: 3.5rem;
+          outline: none;
+          border: 1px $color03 solid;
+          text-indent: 2rem; //placeholder's cursor offset
+        }
+        i {
+          //shevron, button
+          border-top-left-radius: 0%;
+          border-bottom-left-radius: 0%;
+          padding: 20px;
+          font-size: 15px;
+          border: 2px solid $color01; //*this solves the issue of the border moving the text below
+          border-left: 0px; //*
+          &:hover {
+            border: 2px solid $color06; //*
+          }
+        }
+      }
+      p {
+        margin-bottom: 1rem;
+      }
+    }
+    .footer03-foot02,
+    .footer03-foot03,
+    .footer03-foot04 {
+      @include border-bottom;
+    }
+  }
+  //#endregion
+
+  #footer04 {
+    background-color: $color02;
+    color: $color10;
+    padding: 1rem;
+    .footer04-01 {
+      @include flex-center-center;
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin-bottom: 1rem;
+      img {
+        margin-right: 1rem;
+      }
+      //change region styling
+      a {
+        @include flex-center-center;
+        font-size: 0.75rem;
+        border: 1px solid $color03;
+        padding: 0.5rem;
+        img {
+          width: 25px;
+        }
+      }
+    }
+    .footer04-02 {
+      font-size: 0.7rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      li {
+        margin-right: 1rem;
+        a {
+          color: $color10;
+        }
+      }
+    }
+
+    .footer04-03 {
+      p {
+        font-size: 0.75rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 599px) {
+  // Showcase08
+  .hero {
+    .image-medium {
+      display: none;
+    }
+    .image-large {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 600px) and (max-width: 799px) {
+  // Showcase08
+  .hero {
+    .image-medium {
+      display: none;
+    }
+    .image-large {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 800px) and (max-width: 999px) {
+  // Showcase08
+  .hero {
+    .image-small {
+      display: none;
+    }
+    .image-medium {
+      display: block;
+    }
+    .image-large {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  header {
+    // Hamburger menu
+    #hamburger {
+      display: none;
+      .hamburger-menu-left {
+        display: none;
+      }
+      .hamburger-menu-right {
+        display: none;
+      }
+    }
+
+    #header-small {
+      display: block;
+      margin: 1rem 1rem;
+      .container {
+        @include flex-center-spaceBetween; // container used as flex
+        img {
+          //icons styling
+          width: 20px;
+          margin-right: 0.25rem;
+        }
+        //general styles for all in the header
+        li {
+          margin-right: 1rem;
+          a {
+            @include flex-center-center;
+            font-size: 0.7rem;
+            color: $color04;
+          }
+        }
+
+        .header-small-left {
+          @include flex-center-center;
+
+          p {
+            margin-right: 1rem; //pipe symbol
+          }
+        }
+        .header-small-right {
+          @include flex-center-center;
+          a {
+            color: $color10;
+          }
+        }
+      }
+    }
+
+    #header-main {
+      display: block;
+      background-color: $color05; //orange color here for the background to ignore the container constraints
+      .container {
+        .header-main-left {
+          //close button turned off
+          .close {
+            display: none;
+          }
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          background-color: $color05;
+          color: $color10;
+          z-index: 0;
+          transform: translateX(0px);
+          li {
+            border-bottom: none;
+            padding: 0.5rem;
+            //chevron
+            a {
+              display: flex;
+              align-items: baseline;
+              color: $color10;
+              margin-left: 0.5rem;
+              i {
+                margin-left: 0.25rem;
+              }
+            }
+            img {
+              width: 55px;
+            }
+          }
+          .logo {
+            display: block;
+          }
+          .menu-and-close {
+            display: none;
+          }
+          .kids-zone {
+            //turning on the lego img icon
+            //turning off kids zone button
+            .kids-zone-button {
+              display: none;
+            }
+            //turning off the home text
+            p {
+              display: none;
+            }
+          }
+          .header-main-right {
+            // @include flex-center-center;
+
+            input {
+              width: 100%; //responsive input field width
+              height: 2.5rem;
+              outline: none;
+              border: 1px solid $color06;
+              border-radius: 1.5rem;
+              text-indent: 1rem; //placeholder's cursor offset
+            }
+          }
+          .container {
+            @include flex-center-spaceBetween;
+          }
+        }
+      }
+    }
+  }
+
+  // Showcase 05 video
+  #showcase05-vid {
+    display: block;
+  }
+
+  #showcase05-img {
+    display: none;
+  }
+
+  // Showcase08
+  .hero {
+    .image-small {
+      display: none;
+    }
+    .image-medium {
+      display: none;
+    }
+    .image-large {
+      display: block;
+    }
+  }
+
+  // Footer
+  footer {
+    // Footer 01
+    #footer01 {
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .footer01-01 {
+          @include flex-center-center;
+          border-bottom: none;
+          border-right: 1px solid $color01;
+          padding: 4rem 2rem; //this padding extends the vertical border
+        }
+      }
+    }
+
+    #footer02 {
+      .footer02-02 {
+        ul {
+          i {
+            //social icons styling
+            padding: 1rem;
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+@mixin flex-center-spaceBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin border-bottom {
+  border-bottom: 1px solid $color03;
+  margin-bottom: 1rem;
+}
